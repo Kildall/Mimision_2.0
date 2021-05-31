@@ -1,0 +1,11 @@
+name: Mimision_2.0
+version: ${project.version}
+main: com.kildall.mimision2.Mimision2
+api-version: 1.16
+prefix: Mimision_2.0
+authors: [ Kildall ]
+description: El plugin de la mimision renovado
+commands:
+  mimir:
+    description: Hacer la mimision
+    usage: /<command>
