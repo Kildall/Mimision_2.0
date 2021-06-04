@@ -8,6 +8,7 @@ opciones:
   mimision:
     #Del 1 y 1000 que tan rapido se hace de dia cuando se duerme (Velocidad en Ticks avanzados por cada tick del juego)
     #Es decir, si la velocidad es 125, en 1 tick del juego, se van a avanzar 125 ticks del tiempo.
+    #Default: 125
     velocidad del amanecer: 125
 
     #Porcentaje de jugadores que tienen que votar para pasar la noche

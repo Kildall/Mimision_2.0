@@ -72,7 +72,7 @@ public class SleepUtils {
 
     private static int loadPassingSpeed(){
         int temp = plugin.getConfig().getInt("opciones.mimision.velocidad del amanecer");
-        if(temp > 1000 || temp < 1){
+        if(temp < 1000 && temp > 1){
             return temp;
         } else {
             return 125;
