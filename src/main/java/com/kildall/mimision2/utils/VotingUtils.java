@@ -88,7 +88,7 @@ public class VotingUtils {
             @Override
             public void run() {
                 votingInProgress = true;
-                if(votes.size() > avaiablePlayers * porcetageToDay){
+                if(votes.size() >= avaiablePlayers * porcetageToDay){
                     SleepUtils.passNight(p.getServer());
                     votingInProgress = false;
                     votes.clear();
@@ -130,8 +130,10 @@ public class VotingUtils {
                 plugin.getServer().broadcastMessage(ChatUtils.colorize(message));
             }
         }
-        String afks = String.format(MessagesFile.getMessages().getString("mensajes.votacion.Jugadores AFK"),AFK.getAfkPlayers().size());
-        plugin.getServer().broadcastMessage(ChatUtils.colorize(afks));
+        if(AFK.getAfkPlayers().size() > 0){
+            String afks = String.format(MessagesFile.getMessages().getString("mensajes.votacion.Jugadores AFK"),AFK.getAfkPlayers().size());
+            plugin.getServer().broadcastMessage(ChatUtils.colorize(afks));
+        }
     }
 
     private static void successfulSleepMessage() {
