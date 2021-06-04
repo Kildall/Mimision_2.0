@@ -9,3 +9,11 @@ commands:
   mimir:
     description: Hacer la mimision
     usage: /<command>
+
+  nomimir:
+    description: No hacer la mimision
+    usage: /<command>
+
+  afk:
+    description: Irse AFK
+    usage: /<command>

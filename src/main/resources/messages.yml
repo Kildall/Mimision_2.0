@@ -1,0 +1,32 @@
+---
+mensajes:
+
+  prefijo: "&l&3Mimision » " #Prefijo del plugin
+
+  votacion:
+    Votacion Repetida: "&cNo sos tan importante como para votar dos veces pt"
+    Voto: "&6Lindo boto uwu"
+    Votar Muchos: "&l&dVamos a mimir? Uwu"
+    Votar Pocos: "&l&dVamos a mimir? Podemos hacerlo pegaditos Uwu"
+    Iniciar Votacion: "&6Se va a realizar la mimision (OwO)"
+    Voto Eliminado: "&cSe ha eliminado tu voto."
+    Jugadores Mundo: "&3Hay &5%2d &3jugadores en el mundo %s"
+    Jugadores AFK: "&aHay &5%2d &ajugadores AFK."
+
+  errores:
+    No Existe: "&cEste jugador no existe"
+    Error al Cancelar: "&cNo podes cancelar algo que no existe. Asi como el amor de
+      tu vieja"
+
+  dormir:
+    Dormir Cancelado: "&cKpo anda a mimir, no rompas los huevos."
+    Durmio Bien: "&l&dHas realizado la mimision uwu"
+    Durmio Mal: "&cNo se ha realizado la mimision :c"
+    No Podes Dormir: "&cFlaco sos boludo o masticas vidrio no ves que no podes dormir."
+
+  afks:
+    No hay AFKs: "&cActualmente no hay nadie afk"
+    Titulo AFK: "&5Las personas que estan AFK ahora mismo son: "
+    Jugador AFK: " &4se fue a cagar uwu"
+    Jugador no AFK: " &l&dte extrañamos bb"
+    Jugador Moviendose AFK: "&l&4Escribe /afk o haz click en este mensaje."
