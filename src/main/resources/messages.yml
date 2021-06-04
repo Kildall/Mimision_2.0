@@ -26,8 +26,6 @@ mensajes:
     Espera Un Poco: "&c&l BANCA UN SEGUNDO LA PUTA MADRE."
 
   afks:
-    No hay AFKs: "&cActualmente no hay nadie afk"
-    Titulo AFK: "&5Las personas que estan AFK ahora mismo son: "
     Jugador AFK: " &4se fue a cagar uwu"
     Jugador no AFK: " &l&dte extrañamos bb"
     Jugador Moviendose AFK: "&l&4Escribe /afk o haz click en este mensaje."
