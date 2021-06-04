@@ -2,12 +2,11 @@ package com.kildall.mimision2.utils;
 
 import com.kildall.mimision2.Mimision2;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Server;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
+
 
 import java.util.ArrayList;
 
@@ -23,6 +22,8 @@ public class SleepUtils {
 
     //Suma tiempo hasta que se vuelva de dia de nuevo
     public static void passNight(Server s){
+        VotingUtils.setNightPassing(true);
+        VotingUtils.setVotingInProgress(false);
         for (World world : s.getWorlds()){
             if(world.getEnvironment().equals(World.Environment.NORMAL)){
                 new BukkitRunnable() {
@@ -30,12 +31,14 @@ public class SleepUtils {
                     public void run() {
                         world.setTime(world.getTime() + nightSpeed);
                         if(world.getTime() < 1000){
+                            VotingUtils.setNightPassing(false);
+                            VotingUtils.clearVotes();
                             this.cancel();
                         }
                     }
                 }.runTaskTimer(plugin, 0, 1);
-                }
             }
+        }
     }
 
 

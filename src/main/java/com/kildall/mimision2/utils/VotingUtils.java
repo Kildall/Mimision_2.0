@@ -14,11 +14,26 @@ import java.util.UUID;
 public class VotingUtils {
 
     private static final Mimision2 plugin = Mimision2.getInstance();
+
+
+    //Booleanos de estado
     private static boolean votingInProgress = false;
+    private static boolean nightPassing = false;
+
+    //ArrayList de Votos
     private static ArrayList<UUID> votes = new ArrayList<>();
+
+    //Numeros de configuracion
     private static int avaiablePlayers = 0;
     private static float porcetageToDay = (float) plugin.getConfig().getInt("opciones.mimision.porcentaje de votos") / 100;
 
+    /**
+     * @param p  = Bukkit Player
+     *
+     *           If number of players avaiable to sleep is greater than 2, then a major voting event starts.
+     *           If number of players avaiable to sleep is 2, then a miner voting event starts.
+     *           If there is only 1 player, simply pass the night.
+     */
     //Comenzar votacion
     public static void startVoting(Player p){
         if(avaiablePlayers > 2){
@@ -31,23 +46,70 @@ public class VotingUtils {
 
     }
 
+    //Getter y Setter de nightPassing
+    /**
+     * @return Has the voting event concluded but the night is still passing? True if yes, False if not
+     */
+    public static boolean isNightPassing() {
+        return nightPassing;
+    }
+
+    /**
+     * @param nightPassing Set nightPassing to True or False.
+     */
+    public static void setNightPassing(boolean nightPassing) {
+        VotingUtils.nightPassing = nightPassing;
+    }
+
+    /**
+     * Executes a clear of the votes list.
+     */
+    //Vaciar la lista de votos
+    public static void clearVotes() {
+        VotingUtils.votes.clear();
+    }
+
+    /**
+     * @return Is there a voting event in progress? True if yes, False if not
+     */
+    //Getter y Setter para votingInProgress
     public static boolean isVotingInProgress() {
         return votingInProgress;
     }
 
+    /**
+     * @param votingInProgress Set the state of voting event.
+     */
+    public static void setVotingInProgress(boolean votingInProgress) {
+        VotingUtils.votingInProgress = votingInProgress;
+    }
+
+
+    /**
+     * @param p Adds a vote to the list if it's not already AND the night isn't passing AND there's a voting event in progress.
+     */
     public static void vote(Player p){
-        if(!votes.contains(p.getUniqueId())){
+        if(!votes.contains(p.getUniqueId()) && !nightPassing && votingInProgress){
             votes.add(p.getUniqueId());
         }
     }
 
+    /**
+     * @param p Removes vote from player of the list.
+     */
     public static void removeVote(Player p){
         votes.remove(p.getUniqueId());
     }
 
+
+    /**
+     * @param p Player.
+     * @return Has player p voted? True if yes, False if not.
+     */
     public static boolean hasPlayerVoted(Player p){
         return votes.contains(p.getUniqueId());
     }
+
 
     private static void startSmallVote(Player p) {
         ChatUtils.broadcastMessage(p.getServer(),"mensajes.votacion.Iniciar Votacion");
@@ -60,18 +122,16 @@ public class VotingUtils {
         new BukkitRunnable(){
             @Override
             public void run() {
-                votingInProgress = true;
+                setVotingInProgress(true);
                 if(votes.size() == 2){
                     SleepUtils.passNight(p.getServer());
-                    votingInProgress = false;
-                    votes.clear();
                     successfulSleepMessage();
                     this.cancel();
                 }
                 if(!SleepUtils.isNight(p.getWorld())){
-                    votingInProgress = false;
                     votes.clear();
                     unsuccessfulSleepMessage();
+                    setVotingInProgress(false);
                     this.cancel();
                 }
             }
@@ -90,15 +150,14 @@ public class VotingUtils {
                 votingInProgress = true;
                 if(votes.size() >= avaiablePlayers * porcetageToDay){
                     SleepUtils.passNight(p.getServer());
-                    votingInProgress = false;
                     votes.clear();
                     successfulSleepMessage();
                     this.cancel();
                 }
                 if(!SleepUtils.isNight(p.getWorld())){
-                    votingInProgress = false;
                     votes.clear();
                     unsuccessfulSleepMessage();
+                    setVotingInProgress(false);
                     this.cancel();
                 }
             }

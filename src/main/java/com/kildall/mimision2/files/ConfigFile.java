@@ -1,12 +1,8 @@
 package com.kildall.mimision2.files;
 
 import com.kildall.mimision2.Mimision2;
-import org.apache.commons.io.FileUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.logging.Logger;
 
 public class ConfigFile {

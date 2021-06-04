@@ -3,9 +3,7 @@ package com.kildall.mimision2.utils;
 import com.kildall.mimision2.Mimision2;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Logger;
 

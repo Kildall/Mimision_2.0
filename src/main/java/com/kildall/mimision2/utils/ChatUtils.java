@@ -9,7 +9,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
 
 public class ChatUtils {
 
