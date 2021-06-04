@@ -10,7 +10,7 @@ public class onCommandPreprocessEvent implements Listener {
     public void onSendMessage(PlayerCommandPreprocessEvent e){
         AFK.updateTimer(e.getPlayer());
         //Si el jugador se puso AFK con comandos, si se hace algo sacarlo.
-        if(AFK.getAfkPlayers().containsKey(e.getPlayer().getUniqueId())){
+        if(AFK.getAfkPlayers().containsKey(e.getPlayer().getUniqueId()) && !e.getMessage().equals("/afk")){
             if(AFK.getAfkPlayers().get(e.getPlayer().getUniqueId()).equals("command")){
                 AFK.removeAFKByCommand(e.getPlayer());
             }

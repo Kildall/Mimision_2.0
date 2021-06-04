@@ -37,7 +37,7 @@ public class Mimir implements CommandExecutor {
             } else if(VotingUtils.isVotingInProgress() && VotingUtils.hasPlayerVoted(p)) {
                 //Se avisa que ya voto
                 ChatUtils.sendMessage(p, "mensajes.votacion.Votacion Repetida");
-                //Si no puede dormir
+            //Si esta pasando la noche
             } else if (VotingUtils.isNightPassing()){
                 ChatUtils.sendMessage(p,"mensajes.dormir.Espera Un Poco");
             } else if(!SleepUtils.canSleep(p)){

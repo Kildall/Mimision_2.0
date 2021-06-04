@@ -112,6 +112,7 @@ public class VotingUtils {
 
 
     private static void startSmallVote(Player p) {
+        VotingUtils.setVotingInProgress(true);
         ChatUtils.broadcastMessage(p.getServer(),"mensajes.votacion.Iniciar Votacion");
         for(Player subject : p.getServer().getOnlinePlayers()){
             if(!subject.equals(p)){
@@ -139,6 +140,7 @@ public class VotingUtils {
     }
 
     private static void startLargeVote(Player p) {
+        VotingUtils.setVotingInProgress(true);
         ChatUtils.broadcastMessage(p.getServer(),"mensajes.votacion.Iniciar Votacion");
         ChatUtils.broadcastCustomMessage(p.getServer(),"&l--------------------------------------------");
         broadcastWorldOfPlayers();
@@ -147,7 +149,6 @@ public class VotingUtils {
         new BukkitRunnable(){
             @Override
             public void run() {
-                votingInProgress = true;
                 if(votes.size() >= avaiablePlayers * porcetageToDay){
                     SleepUtils.passNight(p.getServer());
                     votes.clear();

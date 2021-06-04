@@ -10,8 +10,8 @@ mensajes:
     Votar Pocos: "&l&dVamos a mimir? Podemos hacerlo pegaditos Uwu"
     Iniciar Votacion: "&6Se va a realizar la mimision (OwO)"
     Voto Eliminado: "&cSe ha eliminado tu voto."
-    Jugadores Mundo: "&3Hay &5%2d &3jugadores en el mundo %s"
-    Jugadores AFK: "&aHay &5%2d &ajugadores AFK."
+    Jugadores Mundo: "&3Hay&5%2d &3jugador(es) en el mundo %s"
+    Jugadores AFK: "&aHay&5%2d &ajugador(es) AFK."
 
   errores:
     No Existe: "&cEste jugador no existe"
