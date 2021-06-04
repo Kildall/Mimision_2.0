@@ -9,10 +9,12 @@ commands:
   mimir:
     description: Hacer la mimision
     usage: /<command>
+    aliases: [nanai, noni, dormision, siestita]
 
   nomimir:
     description: No hacer la mimision
     usage: /<command>
+    aliases: [nonanai, nohaynoni, cancelarladormision, antisiestita]
 
   afk:
     description: Irse AFK
